@@ -88,8 +88,9 @@ class evaluation(object):
         if file_format[1] == '.txt':
             gtCon = open(gtFile)
             gtLines = gtCon.readlines()
+            
             for gtLine in gtLines:
-                if gtLine.split(' ')[0] == str(label):
+                if True: #gtLine.split(' ')[0] == str(label):
                     gtRects.append((int(float(gtLine.split(' ')[1])), int(float(gtLine.split(' ')[2])),
                                     int(float(gtLine.split(' ')[3])), int(float(gtLine.split(' ')[4].strip('\n')))))
                     num_pos += 1
@@ -103,7 +104,7 @@ class evaluation(object):
         detCon = open(detFile)
         detLines = detCon.readlines()
         for detLine in detLines:
-            if detLine.split(' ')[0] == str(label):
+            if True: #detLine.split(' ')[0] == str(label):
                 detRects.append((int(detLine.split(' ')[1]), int(detLine.split(' ')[2]),
                                  int(detLine.split(' ')[3]), int(detLine.split(' ')[4])))
                 scores.append(float(detLine.split(' ')[5].strip('\n')))
@@ -277,7 +278,7 @@ class evaluation(object):
         aps = 0
 
         # temp
-        class_map_temp = {1: 'Person', 2: 'Vehicle', 3: 'Dryer'}
+        class_map_temp = {1: 'Nuclei'}
 
         for label in range(1, self.cls):
             semantic_label = class_map_temp[label]
